@@ -62,6 +62,10 @@
     "precover": "yarn lint",
     "prepare": "husky install"
   },
+  "lint-staged": {
+    "*": "cspell --no-must-find-files",
+    "*.js": "eslint --cache"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/webpack/enhanced-resolve.git"
