@@ -45,7 +45,8 @@ const execToArray = (content, regexp) => {
 const schema = [
 	{
 		title: "license comment",
-		regexp: /\/\*\n\s*MIT License http:\/\/www\.opensource\.org\/licenses\/mit-license\.php\n\s*(?:(Authors? .+)\n)?\s*\*\/\n/g,
+		regexp:
+			/\/\*\n\s*MIT License http:\/\/www\.opensource\.org\/licenses\/mit-license\.php\n\s*(?:(Authors? .+)\n)?\s*\*\/\n/g,
 		updateMessage: "update the license comment",
 		update(content, author) {
 			return (
@@ -82,7 +83,8 @@ const schema = [
 	},
 	{
 		title: "imports",
-		regexp: /(const (\{\s+\w+(?::\s+\w+)?(,\s+\w+(?::\s+\w+)?)*\s+\}|\w+) = (\/\*\* @type \{TODO\} \*\/\s\()?require\("[^"]+"\)\)?(\.\w+)*;\n)+\n/g,
+		regexp:
+			/(const (\{\s+\w+(?::\s+\w+)?(,\s+\w+(?::\s+\w+)?)*\s+\}|\w+) = (\/\*\* @type \{TODO\} \*\/\s\()?require\("[^"]+"\)\)?(\.\w+)*;\n)+\n/g,
 		updateMessage: "sort imports alphabetically",
 		update(content) {
 			const items = execToArray(
@@ -97,7 +99,8 @@ const schema = [
 	},
 	{
 		title: "type imports",
-		regexp: /(\/\*\* (?:@template \w+ )*@typedef \{import\("[^"]+"\)(\.\w+)*(?:<(?:(?:\w\.)*\w+, )*(?:\w\.)*\w+>)?\} \w+(?:<(?:(?:\w\.)*\w+, )*(?:\w\.)*\w+>)? \*\/\n)+\n/g,
+		regexp:
+			/(\/\*\* (?:@template \w+ )*@typedef \{import\("[^"]+"\)(\.\w+)*(?:<(?:(?:\w\.)*\w+, )*(?:\w\.)*\w+>)?\} \w+(?:<(?:(?:\w\.)*\w+, )*(?:\w\.)*\w+>)? \*\/\n)+\n/g,
 		updateMessage: "sort type imports alphabetically",
 		update(content) {
 			const items = execToArray(
